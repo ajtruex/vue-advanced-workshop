@@ -1,4 +1,14 @@
+<script src="../node_modules/vue/dist/vue.js"></script>
+
+<div id="app">
+  <counter></counter>
+  <counter></counter>
+  <counter></counter>
+  <button @click="inc">increment</button>
+</div>
+
 <script>
+// Implement a createStore function that allows the following usage.
 function createStore ({ state, mutations }) {
   return new Vue({
     data: {

@@ -1,16 +1,18 @@
 require('../../util').createTestCase(__filename, (window, logs, done) => {
   expect(window.document.getElementById('app').innerHTML).toMatch(
-    `<div>0</div> <div>0</div> <div>0</div>`
+    `0 <button>+</button><button>-</button>`
   )
+  window.$click('button')
   window.$click('button')
   setTimeout(() => {
     expect(window.document.getElementById('app').innerHTML).toMatch(
-      `<div>1</div> <div>1</div> <div>1</div>`
+      `2 <button>+</button><button>-</button>`
     )
-    window.$click('button')
+    window.$click('button:last-child')
+    window.$click('button:last-child')
     setTimeout(() => {
       expect(window.document.getElementById('app').innerHTML).toMatch(
-        `<div>2</div> <div>2</div> <div>2</div>`
+        `0 <button>+</button><button>-</button>`
       )
       done()
     }, 0)
